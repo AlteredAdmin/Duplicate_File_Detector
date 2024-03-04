@@ -1,57 +1,51 @@
 # Duplicate File Detector
 
-**Description:** This script, written in Python, is designed to detect and log duplicate files within a specified directory, including its subdirectories. The script identifies duplicates by calculating and comparing the SHA-256 hash of each file, a unique identifier produced from the file content.
+This repository contains scripts for detecting duplicate files in a specified directory. The scripts use hash functions to identify duplicates by comparing file contents, ensuring accuracy regardless of file names. Available for Bash, PowerShell, and Python environments.
+
 
 **Author:** Altered Admin  
-**Date:** July 20, 2022  
 **Website:** [Altered Admin's Site](https://alteredadmin.github.io)  
 **Twitter:** [@Alt3r3dAdm1n](https://twitter.com/Alt3r3dAdm1n)  
 
----
+## Scripts
+
+- `DuplicateFileDetector.sh`: Bash script for Unix/Linux systems.
+- `DuplicateFileDetector.ps1`: PowerShell script for Windows systems.
+- `DuplicateFileDetector.py`: Python script for cross-platform usage.
 
 ## Features
 
-- Efficiently calculates SHA-256 hashes of files.
-- Scans directories recursively for file duplicates.
-- Saves duplicate details in a timestamped CSV file.
-- Displays duplicates in a well-formatted table.
-
-## Dependencies
-
-Required modules:
-
-- os
-- hashlib
-- csv
-- datetime
-- prettytable (Install via pip: `pip install prettytable`)
-
-## Detailed Functions
-
-- `calculate_hash(file_path, block_size = 65536)`: This function calculates the SHA-256 hash of a given file. It reads the file in blocks of size block_size to ensure it can handle large files without exhausting system memory.
-
-- `find_duplicates(directory_path)`: This function takes in a directory path and traverses through every file within that directory and its subdirectories. For each file, it calculates the file's hash using the calculate_hash function, and keeps track of these hashes in a dictionary. If a file with the same hash is found, it is considered a duplicate.
-
-- `log_and_print_duplicates(duplicates)`: This function logs the duplicate files to a CSV file and prints them in an ASCII table. The CSV file is named with the current date and time to ensure unique filenames for each run of the script. Each row in the CSV file represents a file path associated with a hash value.
+- **Efficiency**: Quickly scans directories by calculating file hashes.
+- **Accuracy**: Detects duplicates based on file content, not names.
+- **Convenience**: Generates a CSV file listing all duplicate files with their paths.
+- **Flexibility**: Offers versions for multiple operating systems and environments.
 
 ## Usage
 
-1. Clone the repository:
+### Bash (Unix/Linux)
 
-```bash
-git clone https://github.com/alteredadmin/DuplicateFileDetector.git
-cd DuplicateFileDetector
-```
+1. Ensure you have execution permission: `chmod +x DuplicateFileDetector.sh`
+2. Run the script: `./DuplicateFileDetector.sh`
+3. Enter the directory path when prompted.
 
-2. Run the script:
+### PowerShell (Windows)
 
-```bash
-python DuplicateFileFinder.py
-```
+1. Open PowerShell with administrative privileges.
+2. Execute the script: `.\DuplicateFileDetector.ps1`
+3. Follow the on-screen instructions.
 
-3. When prompted, enter the directory path where you wish to search for duplicates. During its execution, the script prints out the file paths of the files it is currently scanning, so users can observe its progress.
+### Python (Cross-Platform)
 
----
+1. Ensure Python is installed on your system.
+2. Run the script: `python DuplicateFileDetector.py`
+3. Input the directory path as prompted.
+
+## Requirements
+
+- Bash script requires `sha256sum` and standard Unix utilities.
+- PowerShell script requires Windows PowerShell 5.1 or higher.
+- Python script requires Python 3.x.
+
 
 ### Support the Developer
 
@@ -71,9 +65,3 @@ If you found this helpful, please consider:
 - **ETH:** `0xef053b0d936746Df00C9CCe0454b7b8afb1497ac`
 
 -->
-
----
-
-### License
-
-n/a
